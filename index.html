@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Nest | Premium Mobile Deep Cleaning</title>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-navy: #1a2a44;
+            --accent-teal: #4fb9af;
+            --btn-peach: #d9ab82; 
+            --soft-gray: #f4f7f9;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.95);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--soft-gray);
+            color: var(--primary-navy);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .brand { font-family: 'Playfair Display', serif; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(26, 42, 68, 0.1);
+        }
+
+        .brand {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* --- CENTRALIZED CONTAINER --- */
+        .main-wrapper {
+            max-width: 850px; 
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HERO SECTION WITH BANNER IMAGE --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('main.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-bottom: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(45px, 8vw, 65px);
+            margin-bottom: 20px;
+            line-height: 1.1;
+            color: var(--white);
+        }
+
+        .hero-content p {
+            font-size: 22px;
+            font-style: italic;
+            margin-bottom: 40px;
+            color: var(--white);
+        }
+
+        .hero-book-btn {
+            display: inline-block;
+            background: var(--btn-peach);
+            color: white;
+            padding: 22px 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 16px;
+            border-radius: 0; 
+            transition: 0.3s;
+        }
+
+        .hero-book-btn:hover { background: var(--primary-navy); }
+
+        /* --- SERVICES SECTION --- */
+        .services {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .section-title { margin-bottom: 50px; }
+        .section-title h2 { font-size: 42px; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-navy); }
+        .section-title div { width: 50px; height: 3px; background: var(--accent-teal); margin: 15px auto; }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        /* ROUNDED BOXES (TEXT TOP, IMAGE BOTTOM) */
+        .service-card {
+            background: var(--white);
+            border-radius: 60px; 
+            transition: 0.4s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+        }
+
+        .service-info {
+            padding: 50px 40px;
+            order: 1; 
+        }
+
+        .service-info h3 { 
+            font-size: 26px; 
+            margin-bottom: 8px; 
+            text-transform: uppercase;
+        }
+
+        .price-tag { 
+            font-weight: 700; 
+            color: var(--accent-teal); 
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service-info p { 
+            font-size: 17px; 
+            color: #777;
+            font-weight: 300;
+        }
+
+        .service-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            order: 2; 
+        }
+
+        /* --- MASSIVE CINEMATIC BANNER --- */
+        .mid-banner {
+            width: 100%;
+            height: auto; 
+            max-height: 900px;
+            object-fit: cover;
+            border-radius: 40px;
+            display: block;
+            margin: 100px 0;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.12);
+        }
+
+        /* --- FOOTER --- */
+        .transformation-footer {
+            background-color: var(--primary-navy);
+            padding: 120px 0 60px;
+            text-align: center;
+            color: var(--white);
+            border-radius: 60px 60px 0 0;
+        }
+
+        .transformation-footer h2 { font-size: 60px; margin-bottom: 30px; }
+        .transformation-footer p { font-size: 22px; margin-bottom: 50px; color: #cbd5e1; }
+
+        .reserve-btn {
+            display: inline-block;
+            padding: 22px 75px;
+            border: 2px solid var(--accent-teal);
+            border-radius: 60px;
+            text-decoration: none;
+            color: var(--white);
+            font-size: 20px;
+            margin-bottom: 60px;
+            transition: 0.3s;
+        }
+
+        .reserve-btn span { border-bottom: 1px solid var(--white); }
+        .reserve-btn:hover { background-color: var(--accent-teal); color: var(--primary-navy); }
+
+        .social-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 80px; }
+        .social-links a { color: var(--accent-teal); font-size: 45px; text-decoration: none; }
+
+        .copyright { font-size: 15px; opacity: 0.5; }
+
+        @media (max-width: 768px) {
+            .hero-content h1, .transformation-footer h2 { font-size: 38px; }
+            .hero-book-btn { width: 100%; padding: 18px; }
+            .mid-banner { height: 60vh; }
+            .service-img { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav><div class="brand">Pure Nest</div></nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Expert Fabric <br>Restoration</h1>
+            <p>Bringing professional deep cleaning and medical-grade sanitization directly to your doorstep.</p>
+            <a href="booking.html" class="hero-book-btn">Request A Mobile Visit Now</a>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        
+        <!-- SOFA COLLECTION -->
+        <section class="services">
+            <div class="section-title">
+                <h2>Professional Sofa Care</h2>
+                <div></div>
+            </div>
+
+            <div class="service-grid">
+                <!-- 3 Seater -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3>3 Seater Sofa</h3>
+                        <div class="price-tag">UGX 75,000</div>
+                        <p>Specialized deep extraction for compact living sets.</p>
+                    </div>
+                    <img src="sit3.jpg" class="service-img">
+                </div>
+
+                <!-- 4 Seater -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3>4 Seater Sofa</h3>
+                        <div class="price-tag">UGX 100,000</div>
+                        <p>Complete sanitization for medium lounge furniture.</p>
+                    </div>
+                    <img src="sit4.jpg" class="service-img">
+                </div>
+
+                <!-- 5 Seater -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3>5 Seater Sofa</h3>
+                        <div class="price-tag">UGX 135,000</div>
+                        <p>Our standard restoration package for family sofa sets.</p>
+                    </div>
+                    <img src="sit5.jpg" class="service-img">
+                </div>
+
+                <!-- 6 Seater -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3>6 Seater Sofa</h3>
+                        <div class="price-tag">UGX 160,000</div>
+                        <p>Industrial-grade stain removal for large seating units.</p>
+                    </div>
+                    <img src="sit6.jpg" class="service-img">
+                </div>
+
+                <!-- 7 Seater -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3>7 Seater Sofa</h3>
+                        <div class="price-tag">UGX 185,000</div>
+                        <p>Maximum hygiene and fabric refresh for 7-seat lounges.</p>
+                    </div>
+                    <img src="sit7.jpg" class="service-img">
+                </div>
+
+                <!-- 8 Seater -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3>8 Seater Sofa</h3>
+                        <div class="price-tag">UGX 200,000</div>
+                        <p>Deep extraction for large sectional sofa configurations.</p>
+                    </div>
+                    <img src="sit8.jpg" class="service-img">
+                </div>
+
+                <!-- 9 Seater -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3>9 Seater Sofa</h3>
+                        <div class="price-tag">UGX 215,000</div>
+                        <p>Complete upholstery revival for extensive lounge sets.</p>
+                    </div>
+                    <img src="sit9.jpg" class="service-img">
+                </div>
+
+                <!-- 10 Seater -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3>10 Seater Sofa</h3>
+                        <div class="price-tag">UGX 235,000</div>
+                        <p>Full-scale fabric deep-cleaning for ultimate luxury sets.</p>
+                    </div>
+                    <img src="sit10.jpg" class="service-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- MATTRESS COLLECTION -->
+        <section class="services">
+            <div class="section-title">
+                <h2>The Mattress Atelier</h2>
+                <div></div>
+            </div>
+
+            <div class="service-grid">
+                <!-- 4x6 -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3>4 x 6 ft Mattress</h3>
+                        <div class="price-tag">UGX 50,000</div>
+                        <p>Removing dust mites and allergens for healthier sleep.</p>
+                    </div>
+                    <img src="mat1.jpg" class="service-img">
+                </div>
+
+                <!-- 5x6 -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3>5 x 6 ft Mattress</h3>
+                        <div class="price-tag">UGX 80,000</div>
+                        <p>Industrial steam sanitization for Queen-sized mattresses.</p>
+                    </div>
+                    <img src="mat2.jpg" class="service-img">
+                </div>
+
+                <!-- 6x6 -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3>6 x 6 ft Mattress</h3>
+                        <div class="price-tag">UGX 100,000</div>
+                        <p>Total restoration and sanitization for King-sized beds.</p>
+                    </div>
+                    <img src="mat3.jpg" class="service-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- CINEMATIC FLOWING BANNER -->
+        <img src="mat.jpg" class="mid-banner" alt="Spotless Home Display">
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="transformation-footer">
+        <div class="main-wrapper">
+            <h2>Ready for a Refresh?</h2>
+            <p>Book your professional deep cleaning session at home today.</p>
+            <a href="booking.html" class="reserve-btn"><span>REQUEST A MOBILE VISIT NOW</span></a>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <p class="copyright">© 2024 Pure Nest. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
