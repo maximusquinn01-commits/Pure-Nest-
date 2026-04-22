@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Visit | Pure Nest</title>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-navy: #1a2a44;
+            --accent-teal: #4fb9af;
+            --btn-peach: #d9ab82; 
+            --soft-gray: #f4f7f9;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.95);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--soft-gray);
+            color: var(--primary-navy);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand { font-family: 'Playfair Display', serif; }
+
+        /* --- CENTERED NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(26, 42, 68, 0.1);
+        }
+
+        .brand {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--primary-navy);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #777;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-teal);
+        }
+
+        /* --- BOOKING CONTAINER --- */
+        .booking-section {
+            padding: 160px 20px 80px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .booking-card {
+            background: var(--white);
+            max-width: 700px; 
+            width: 100%;
+            border-radius: 40px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            text-align: center; 
+        }
+
+        .booking-header {
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .booking-header h1 {
+            font-size: 42px;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+        }
+
+        .booking-header p {
+            color: #777;
+            font-size: 16px;
+            max-width: 400px;
+        }
+
+        .divider {
+            width: 50px;
+            height: 3px;
+            background: var(--accent-teal);
+            margin: 20px auto;
+        }
+
+        /* --- CENTERED FORM STYLING --- */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            gap: 30px;
+            max-width: 500px; 
+            margin: 0 auto; 
+        }
+
+        .form-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        input, select, textarea {
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+            padding: 18px 20px;
+            font-size: 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            background-color: var(--soft-gray);
+            color: var(--primary-navy);
+            transition: 0.3s ease;
+            text-align: center; 
+            text-align-last: center; 
+        }
+
+        ::placeholder {
+            text-align: center;
+            color: #a0aec0;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-teal);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(79, 185, 175, 0.1);
+        }
+
+        textarea {
+            resize: none; 
+            min-height: 120px;
+        }
+
+        /* --- SUBMIT BUTTON --- */
+        .submit-btn {
+            width: 100%;
+            background: var(--btn-peach);
+            color: white;
+            padding: 22px;
+            border: none;
+            border-radius: 60px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(26, 42, 68, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .booking-card {
+                padding: 40px 25px;
+                border-radius: 30px;
+            }
+            .booking-header h1 {
+                font-size: 32px;
+            }
+            .brand {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="brand">Pure Nest</a>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </nav>
+
+    <section class="booking-section">
+        <div class="booking-card">
+            
+            <div class="booking-header">
+                <h1>Request a Visit</h1>
+                <div class="divider"></div>
+                <p>Fill out the details below to send your request directly to our WhatsApp.</p>
+            </div>
+
+            <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="e.g. Jane Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="+256 700 000000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Home Location</label>
+                    <input type="text" id="address" placeholder="e.g. Plot 12, Kololo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Select Service</label>
+                    <select id="service" required>
+                        <option value="" disabled selected>Tap to choose...</option>
+                        <optgroup label="Sofa Care">
+                            <option value="3 Seater Sofa">3 Seater Sofa (UGX 75k)</option>
+                            <option value="4 Seater Sofa">4 Seater Sofa (UGX 100k)</option>
+                            <option value="5 Seater Sofa">5 Seater Sofa (UGX 135k)</option>
+                            <option value="6 Seater Sofa">6 Seater Sofa (UGX 160k)</option>
+                            <option value="7 Seater Sofa">7 Seater Sofa (UGX 185k)</option>
+                            <option value="8 Seater Sofa">8 Seater Sofa (UGX 200k)</option>
+                            <option value="9 Seater Sofa">9 Seater Sofa (UGX 215k)</option>
+                            <option value="10 Seater Sofa">10 Seater Sofa (UGX 235k)</option>
+                        </optgroup>
+                        <optgroup label="Mattress Atelier">
+                            <option value="4 x 6 ft Mattress">4 x 6 ft Mattress (UGX 50k)</option>
+                            <option value="5 x 6 ft Mattress">5 x 6 ft Mattress (UGX 80k)</option>
+                            <option value="6 x 6 ft Mattress">6 x 6 ft Mattress (UGX 100k)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Special Instructions</label>
+                    <textarea id="notes" placeholder="Gate codes, stain details, etc. (Optional)"></textarea>
+                </div>
+
+                <!-- Changed icon to WhatsApp -->
+                <button type="submit" class="submit-btn" id="submitBtn"><i class="fab fa-whatsapp"></i> Send Request</button>
+            </form>
+
+        </div>
+    </section>
+
+    <script>
+        // Set minimum date to today so users can't pick the past
+        const dateInput = document.getElementById('date');
+        dateInput.min = new Date().toISOString().split("T")[0];
+
+        function sendToWhatsApp(event) {
+            event.preventDefault(); // Prevents the page from refreshing
+
+            // Get all the values typed by the user
+            const name = document.getElementById('fullName').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            
+            // Get the readable text of the selected service
+            const serviceSelect = document.getElementById('service');
+            const serviceText = serviceSelect.options[serviceSelect.selectedIndex].text;
+            
+            const date = document.getElementById('date').value;
+            const notes = document.getElementById('notes').value;
+
+            // Format the message exactly how it will appear in WhatsApp
+            let message = `*New Booking Request - Pure Nest* 🌿\n\n`;
+            message += `*Name:* ${name}\n`;
+            message += `*Phone:* ${phone}\n`;
+            message += `*Location:* ${address}\n`;
+            message += `*Service:* ${serviceText}\n`;
+            message += `*Preferred Date:* ${date}\n`;
+            
+            if(notes.trim() !== "") {
+                message += `*Special Instructions:* ${notes}\n`;
+            }
+
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappNumber = "256784274297"; // Your exact number
+            
+            // Create the official WhatsApp API Link
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // Visual feedback on the button
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = "Opening WhatsApp...";
+            btn.style.backgroundColor = "#25D366"; // Official WhatsApp Green color
+
+            // Open WhatsApp immediately
+            window.open(whatsappURL, '_blank');
+
+            // Reset the form after 3 seconds
+            setTimeout(() => {
+                document.getElementById('bookingForm').reset();
+                btn.innerHTML = originalText;
+                btn.style.backgroundColor = "var(--btn-peach)";
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
